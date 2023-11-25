@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO | Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap">
+
+    <!-- Your local CSS file -->
+    <link rel="stylesheet" href="CSS/SigninSignup.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class='row align-items-center justify-content-center mt-5'>
+            <div class='col-md-6 text-center' style='background-color: #1A1F44; border: 2px solid #4F659C; border-radius: 100px; padding: 20px'>
+                <img src="ProjectDot.png" height="16px"> <br><br>
+                <p class='icontxt'> TIC-TAC-TOE </p>
+            </div>
+        </div>
+
+    </div>
+
+    <form method="post" class="mt-3">
+
+        <div class='row align-items-center justify-content-center'>
+            <div class='col-md-4'>
+                <p style='color: #fff;' class='pixelify'> Email </p>
+                <input type="text" class="form-control" name="Email">
+            </div>
+        </div>
+
+        <div class='row align-items-center justify-content-center mt-3'>
+            <div class='col-md-4'>
+                <p style='color: #fff'> Password </p>
+                <input type="password" class="form-control" name="Password">
+            </div>
+        </div>
+
+        <div class='row mt-3'>
+            <div class='col-md-12 text-center'>
+                <button type="submit" style="font-size: 32px;" class="btn btn-primary pixel"> SIGN IN </button>
+            </div>
+        </div>
+
+    </form>
+
+    <div class='container mt-5'>
+        <div class='row'>
+            <div class='col-md-12 text-center'>
+                <a href="Regis.html" class="btn btn-secondary pixel"> REGISTER </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<?php
+session_start();
+
+include 'conn.php';
+
+$sql = 'SELECT Email, Pwd FROM User';
+$result = mysqli_query($conn, $sql);
+
+if (!$result) {
+    $error = 'Error retrieving users: ' . mysqli_error($conn);
+    // handle error
+} elseif (isset($_POST['Email']) && isset($_POST['Password'])) {
+    $username = trim($_POST['Email']);
+    $password = $_POST['Password'];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['Email'] == $username && $row['Pwd'] == $password) {
+            header('Location: Rule.php');
+            exit();
+        }
+    }
+    echo '<p> Username or password is incorrect. </p>';
+}
+?>
+

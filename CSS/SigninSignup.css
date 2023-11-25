@@ -1,0 +1,91 @@
+.inputBox {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    width: 400px;
+    background: #F4F4F4;
+    border-radius: 8px;
+    border: 0px solid #000000;
+
+}
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: black;
+}
+
+.btn {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #F70FF1, #155EBC);
+            border: none;
+    color: #FFD900;
+}
+
+.btn-secondary {
+    background: transparent;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.icontxt {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 29px;
+    color: #fff;
+
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+}
+
+.txt {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+
+    color: #fff;
+}
+
+.or {
+    font-family: 'Prompt', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+
+    color: #fff;
+
+    font-size: 8px;
+    font-style: bold;
+}
+
+.txt {
+    font-family: 'Prompt', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: center;
+
+    color: #fff;
+}
+
+.pixel {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+
+}
